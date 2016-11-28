@@ -154,7 +154,10 @@ FieldCount分のListデータからNullではないデータを抽出して取�
 ## Example
 1. Assets/ListFields/Scenes/ListFields.unity を開きます。
 2. メニューバーのA3Utility → ListFields → Example Windowを選びます。
-3. [Screenshots](##Screenshots)にあるウィンドウが表示されます。
+3. [Screenshots](#screenshots)にあるようなウィンドウが表示されます。
+
+HierarchyでExampleゲームオブジェクトを選択した状態で2 ~ 3の手順を行うと、Example WindowにPropertyListが表示されます。  
+PropertyListはExampleゲームオブジェクトにアタッチされているExampleObj.csのプロパティを元に表示しています。
 
 ## Screenshots
 <img align="right" src="Screenshots/ExampleEditorWindow.png">
