@@ -151,5 +151,10 @@ FieldCountに関係なく、内部的に保存している全てのListデータ
 #### `IEnumerable<T> GetValidityList()`
 FieldCount分のListデータからNullではないデータを抽出して取得
 
+## Example
+1. Assets/ListFields/Scenes/ListFields.unity を開きます。
+2. メニューバーのA3Utility → ListFields → Example Windowを選びます。
+3. [Screenshots](##Screenshots)にあるウィンドウが表示されます。
+
 ## Screenshots
 <img align="right" src="Screenshots/ExampleEditorWindow.png">
