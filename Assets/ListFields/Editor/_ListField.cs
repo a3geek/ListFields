@@ -12,8 +12,14 @@ namespace A3Utility.Editor.ListFields {
         public event Action OnCountChanged = delegate { };
 
         public T this[int index] {
-            get { return this.list[index]; }
-            set { this.list[index] = value; }
+            get {
+                if(index < 0 || index >= this.Count) { throw new ArgumentOutOfRangeException("Index"); }
+                return this.list[index];
+            }
+            set {
+                if(index < 0 || index >= this.Count) { throw new ArgumentOutOfRangeException("Index"); }
+                this.list[index] = value;
+            }
         }
         public Func<int, object, object> Drawer {
             get {
