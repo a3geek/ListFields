@@ -3,10 +3,10 @@ ListFields
 
 
 ## Description
-UnityのEditorGUI向けListFieldを追加するライブラリです。  
+UnityのEditorGUI向けにListFieldを追加するライブラリです。  
 複数のFieldをリスト化して管理します。  
 
-内部で保存しているListのCountをListCount、GUIかSetCountにて設定されるCountをFieldCountと表現しています。
+内部で保存しているListのCountをListCount、GUIかSetCount関数にて設定されるCountをFieldCountと表現しています。
 
 ## Usage
 サンプルコード
