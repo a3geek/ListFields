@@ -84,6 +84,13 @@ namespace A3Utility.Editor.ListFields {
                 yield return this.list[i];
             }
         }
+        
+        public virtual void AddValue(T value) {
+            this.list.Add(value);
+
+            this.Count++;
+            this.inputCount++;
+        }
 
         public virtual IEnumerable<object> GetObjectList() {
             yield return this.GetList();
