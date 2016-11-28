@@ -133,7 +133,7 @@ namespace A3Utility.Editor.ListFields {
                     EditorGUILayout.BeginHorizontal();
                     GUI.SetNextControlName(this.controlName);
                     
-                    EditorGUIUtility.labelWidth = 75f;
+                    EditorGUIUtility.labelWidth = 50f;
                     this.inputCount = EditorGUILayout.IntField("Size", this.inputCount, GUILayout.ExpandWidth(false));
 
                     if(GUILayout.Button("Apply", GUILayout.ExpandWidth(false))) {
