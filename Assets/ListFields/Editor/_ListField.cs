@@ -11,6 +11,10 @@ namespace A3Utility.Editor.ListFields {
         #pragma warning disable 0067
         public event Action OnCountChanged = delegate { };
 
+        public T this[int index] {
+            get { return this.list[index]; }
+            set { this.list[index] = value; }
+        }
         public Func<int, object, object> Drawer {
             get {
                 return (index, value) => this.drawer(index, (T)value);
