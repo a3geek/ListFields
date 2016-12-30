@@ -132,8 +132,7 @@ ListFieldが表示・非表示に関する状態を取得
 #### `string Label { get; }` *
 ListFieldのラベルを取得
 
-### 関数
-
+### メソッド
 #### `void Draw()` *
 ListFieldの描画(OnGUI関数等で呼び出してください)
 
