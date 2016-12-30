@@ -86,6 +86,7 @@ Debug.Log(textList[2]); // "c"
 ## API
 ### インターフェース
 ListFieldはIListTypeを継承しており、*マークが付いているAPIはIListTypeに宣言されています。  
+
 `<T>`は保存するListの型を表しています。
 
 ### プロパティ
