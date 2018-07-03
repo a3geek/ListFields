@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     using LS = List<SerializedProperty>;
 
     public sealed class PropertyList : ListField<SerializedProperty> {

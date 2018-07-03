@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     public sealed class ObjectList<T> : ListField<T> where T : UnityEngine.Object {
         public bool AllowSceneObjects = true;
 

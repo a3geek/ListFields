@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     public sealed class DoubleList : ListField<double> {
         protected override Func<int, double, double> drawer {
             get {

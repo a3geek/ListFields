@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     public sealed class DelayedFloatList : ListField<float> {
         protected override Func<int, float, float> drawer {
             get {

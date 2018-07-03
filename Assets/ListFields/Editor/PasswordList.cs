@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     public sealed class PasswordList : ListField<string> {
         protected override Func<int, string, string> drawer {
             get {

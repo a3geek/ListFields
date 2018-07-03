@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     public sealed class MaskList : ListField<int> {
         public string[] DisplayedOption = new string[0];
 

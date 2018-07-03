@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     public abstract class ListField<T> : IListField {
         protected abstract Func<int, T, T> drawer { get; }
 
@@ -90,7 +90,7 @@ namespace A3Utility.Editor.ListFields {
         }
 
         public virtual IEnumerable<T> GetList() {
-            for(int i = 0; i < this.Count && i < this.list.Count; i++) {
+            for(var i = 0; i < this.Count && i < this.list.Count; i++) {
                 yield return this.list[i];
             }
         }
@@ -111,7 +111,7 @@ namespace A3Utility.Editor.ListFields {
         }
 
         public virtual IEnumerable<T> GetValidityList() {
-            for(int i = 0; i < this.Count && i < this.list.Count; i++) {
+            for(var i = 0; i < this.Count && i < this.list.Count; i++) {
                 if(this.list[i] != null) {
                     yield return this.list[i];
                 }
@@ -120,54 +120,60 @@ namespace A3Utility.Editor.ListFields {
         
         protected virtual void DrawGUI() {
             var folding = this.Folding;
-            this.Folding = EditorGUILayout.Foldout(this.Folding, this.Label);
+            this.Folding = EditorGUILayout.Foldout(this.Folding, this.Label, true);
 
             if(folding != this.Folding) {
                 this.OnFoldToggle(this.Folding);
             }
-            
-            if(this.Folding) {
-                EditorGUI.indentLevel += 1;
 
-                if(this.ShowCountField) {
-                    EditorGUILayout.BeginHorizontal();
-                    GUI.SetNextControlName(this.controlName);
-                    
-                    EditorGUIUtility.labelWidth = 50f;
-                    this.inputCount = EditorGUILayout.IntField("Size", this.inputCount, GUILayout.ExpandWidth(false));
-
-                    if(GUILayout.Button("Apply", GUILayout.ExpandWidth(false))) {
-                        this.Arrangement();
-                    }
-
-                    EditorGUILayout.EndHorizontal();
-                    EditorGUIUtility.labelWidth = 0f;
-
-                    EditorGUI.indentLevel += 1;
-                }
-                
-                var verticalOptions = new List<GUILayoutOption>();
-                if(this.MinHeight >= 0f) { verticalOptions.Add(GUILayout.MinHeight(this.MinHeight)); }
-                if(this.MaxHeight >= 0f) { verticalOptions.Add(GUILayout.MaxHeight(this.MaxHeight)); }
-                if(this.MinWidth >= 0f) { verticalOptions.Add(GUILayout.MinWidth(this.MinWidth)); }
-                if(this.MaxWidth >= 0f) { verticalOptions.Add(GUILayout.MaxWidth(this.MaxWidth)); }
-                
-                EditorGUILayout.BeginVertical(verticalOptions.ToArray());
-                this.scroll = GUILayout.BeginScrollView(this.scroll, this.ShowHorizontalScrollBar, this.ShowVerticalScrollBar);
-
-                for(int i = 0; i < this.Count && i < this.list.Count; i++) {
-                    this.list[i] = (T)this.Drawer(i, this.list[i]);
-                }
-
-                EditorGUILayout.EndScrollView();
-                EditorGUILayout.EndVertical();
-
-                EditorGUI.indentLevel -= this.ShowCountField ? 2 : 1;
+            if(this.Folding == false)
+            {
+                return;
             }
+
+            EditorGUI.indentLevel += 1;
+
+            if(this.ShowCountField)
+            {
+                EditorGUILayout.BeginHorizontal();
+                GUI.SetNextControlName(this.controlName);
+
+                EditorGUIUtility.labelWidth = 50f;
+                this.inputCount = EditorGUILayout.IntField("Size", this.inputCount, GUILayout.ExpandWidth(false));
+
+                if(GUILayout.Button("Apply", GUILayout.ExpandWidth(false)))
+                {
+                    this.Arrangement();
+                }
+
+                EditorGUILayout.EndHorizontal();
+                EditorGUIUtility.labelWidth = 0f;
+
+                EditorGUI.indentLevel += 1;
+            }
+
+            var verticalOptions = new List<GUILayoutOption>();
+            if(this.MinHeight >= 0f) { verticalOptions.Add(GUILayout.MinHeight(this.MinHeight)); }
+            if(this.MaxHeight >= 0f) { verticalOptions.Add(GUILayout.MaxHeight(this.MaxHeight)); }
+            if(this.MinWidth >= 0f) { verticalOptions.Add(GUILayout.MinWidth(this.MinWidth)); }
+            if(this.MaxWidth >= 0f) { verticalOptions.Add(GUILayout.MaxWidth(this.MaxWidth)); }
+
+            EditorGUILayout.BeginVertical(verticalOptions.ToArray());
+            this.scroll = GUILayout.BeginScrollView(this.scroll, this.ShowHorizontalScrollBar, this.ShowVerticalScrollBar);
+
+            for(var i = 0; i < this.Count && i < this.list.Count; i++)
+            {
+                this.list[i] = (T)this.Drawer(i, this.list[i]);
+            }
+
+            EditorGUILayout.EndScrollView();
+            EditorGUILayout.EndVertical();
+
+            EditorGUI.indentLevel -= this.ShowCountField ? 2 : 1;
         }
 
         protected virtual void Arrangement() {
-            for(int i = this.inputCount - this.list.Count; i > 0; i--) {
+            for(var i = this.inputCount - this.list.Count; i > 0; i--) {
                 this.list.Add(default(T));
             }
 

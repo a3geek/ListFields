@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     public sealed class LayerList : ListField<int> {
         protected override Func<int, int, int> drawer {
             get {

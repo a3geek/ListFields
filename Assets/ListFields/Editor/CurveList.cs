@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     public sealed class CurveList : ListField<AnimationCurve> {
         protected override Func<int, AnimationCurve, AnimationCurve> drawer {
             get {

@@ -2,14 +2,14 @@
 using UnityEditor;
 using System.Collections.Generic;
 
-namespace A3Utility.Editor.ListFields.Example {
+namespace ListFields.Example {
     public class ListFieldExample : EditorWindow {
         private List<IListField> listFields = new List<IListField>();
         private Vector2 scroll = Vector2.zero;
         private SerializedObject serialized = null;
 
 
-        [MenuItem("A3Utility/List Fields/Example Window")]
+        [MenuItem("/List Fields/Example Window")]
         public static void ShowWindow() {
             var window = GetWindow<ListFieldExample>();
 

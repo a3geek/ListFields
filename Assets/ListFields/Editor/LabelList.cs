@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     using Pair = List<KeyValuePair<string, string>>;
 
     public sealed class LabelList : ListField<string> {

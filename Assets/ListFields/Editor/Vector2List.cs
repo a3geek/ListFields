@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System;
 
-namespace A3Utility.Editor.ListFields {
+namespace ListFields {
     public sealed class Vector2List : ListField<Vector2> {
         protected override Func<int, Vector2, Vector2> drawer {
             get {
